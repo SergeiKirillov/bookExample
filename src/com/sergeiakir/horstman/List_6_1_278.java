@@ -1,6 +1,6 @@
 package com.sergeiakir.horstman;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 
 public class List_6_1_278 {

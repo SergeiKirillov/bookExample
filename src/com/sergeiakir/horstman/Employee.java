@@ -6,7 +6,7 @@ import java.util.Random;
 
 abstract class Person{
     public abstract String getDescription();
-    private String name;
+    private final String name;
 
     public Person(String name){
         this.name = name;
@@ -24,7 +24,7 @@ abstract class Person{
 
 public class Employee extends Person implements Comparable<Employee>{
     private static int NextId;
-    private int id;
+    private final int id;
 
     //private String name = ""; //Инициализация поля Экспереиента
 
@@ -172,7 +172,7 @@ class Manager extends Employee {
 
 class Student extends Person{
 
-    private String major;
+    private final String major;
     /**
      * @param name Имя студента
      * @param major Специализация студента
