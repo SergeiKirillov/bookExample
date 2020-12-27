@@ -22,7 +22,7 @@ abstract class Person{
 }
 
 
-public class Employee extends Person{
+public class Employee extends Person implements Comparable<Employee>{
     private static int NextId;
     private int id;
 
@@ -110,6 +110,17 @@ public class Employee extends Person{
 
     public String toString(){
         return getClass().getName()+"[name="+getName()+",salary="+salary+",hireDay="+hireDay+"]";
+    }
+
+    /**
+     * Сравнивает работников по зарплате
+     * @param other Другой объект типа Employee
+     * @return Отрицительное значение, если зарплата данного работники меньше, чем у другого работника
+     *          Нулевое значение их зарплаты одинаковы
+     *          Положительное значение,если зарплата данного работники больше, чем у другого работника
+     */
+    public int compareTo(Employee other){
+        return Double.compare(salary,other.salary);
     }
 
 }
