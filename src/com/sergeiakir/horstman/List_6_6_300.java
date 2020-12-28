@@ -13,14 +13,15 @@ public class List_6_6_300 {
         System.out.println("--------------------------------------------------------");
 
 
+
         System.out.println("Sort:");
         Arrays.sort(planets);
         System.out.println(Arrays.toString(planets));
 
         System.out.println("--------------------------------------------------------");
 
-        System.out.println("Sort by lenth:");
-        Arrays.sort(planets, (first,second)->first.length()-second.length());
+        System.out.println("Сортировка по длинне:");
+        Arrays.sort(planets,(first,second)->first.length()-second.length());
         System.out.println(Arrays.toString(planets));
 
         System.out.println("--------------------------------------------------------");
