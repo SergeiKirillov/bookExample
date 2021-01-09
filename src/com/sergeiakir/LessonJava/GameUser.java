@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class GameUser {
     public static void main(String[] args) throws Exception{
-        Short userWar = new Short();
+        WeaponUser userWar = new WeaponUser();
         userWar.shield=10;
         userWar.maxSpeed = 100; //Создание статичного поля
         System.out.println("переменная -> userWar.shield="+userWar.shield);
@@ -21,8 +21,9 @@ public class GameUser {
         WaikStat ws = new WaikStat();
         ws.StatWaik = 25;
         userWar.waikStat = ws;
-        System.out.println("обект без сериализации -> userWar.waikStat.StatWaik="+userWar.waikStat.StatWaik);
-
+        System.out.println("объект без сериализации -> userWar.waikStat.StatWaik="+userWar.waikStat.StatWaik);
+        userWar.weapontClass=10;
+        System.out.println("объект наследуемый  -> userWar.weapontClass ="+userWar.weapontClass);
 
         //Сериализация обьекта
         FileOutputStream fosTemp = new FileOutputStream("fileTemp");
@@ -35,17 +36,18 @@ public class GameUser {
         //Десиализация объекта
         FileInputStream fisTemp = new FileInputStream("fileTemp");
         ObjectInputStream oisTemp = new ObjectInputStream(fisTemp);
-        Short newUserWar = (Short) oisTemp.readObject();
+        WeaponUser newUserWar = (WeaponUser) oisTemp.readObject();
         System.out.println("Static переменная ->newUserWar.shield="+newUserWar.shield);
         System.out.println("переменная -> newUserWar.maxSpeed="+newUserWar.maxSpeed); //Итого: Статичные объекты не сериализуются
         System.out.println("объект -> newUserWar.waikPoint.pointWaik="+newUserWar.waikPoint.pointWaik);
-        System.out.println("обект без сериализации (null, но не выскакивает ошибка) -> newUserWar.waikStat.StatWaik="+newUserWar.waikStat);
+        System.out.println("объект без сериализации (null, но не выскакивает ошибка) -> newUserWar.waikStat.StatWaik="+newUserWar.waikStat);
+        System.out.println("Объект наследуемый ->newUserWar.weapontClass="+newUserWar.weapontClass);
 
     }
 
 }
 
-class Short implements Serializable{
+class ShortUser implements Serializable{
     int shield;
     static int maxSpeed;
     WaikPoint waikPoint;
@@ -58,4 +60,8 @@ class WaikPoint implements Serializable{
 
 class WaikStat {
     int StatWaik;
+}
+
+class WeaponUser extends ShortUser implements Serializable{
+    int weapontClass;
 }
