@@ -71,4 +71,12 @@ class GroupStudent{
     public int hashCode() {
         return Objects.hash(Name, Family);
     }
+
+    @Override
+    public String toString() {
+        return "GroupStudent{" +
+                "Name='" + Name + '\'' +
+                ", Family='" + Family + '\'' +
+                '}';
+    }
 }

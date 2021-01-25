@@ -66,4 +66,13 @@ class box{
     public int hashCode() {
         return Objects.hash(Height, Weight, S);
     }
+
+    @Override
+    public String toString() {
+        return "box{" +
+                "Height=" + Height +
+                ", Weight=" + Weight +
+                ", S=" + S +
+                '}';
+    }
 }
